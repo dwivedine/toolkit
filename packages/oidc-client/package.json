@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dwivedine/toolkit/tree/main/packages/oidc-client.git"
+    "url": "git+https://github.com/dwivedine/toolkit.git"
   },
   "keywords": [
     "actions",
