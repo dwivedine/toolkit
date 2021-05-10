@@ -68,7 +68,7 @@ export async function getIDToken(
   try {
     const url_token_endpoint = await getTokenEndPoint()
     core.debug(`token endpoint url is ${url_token_endpoint}`)
-    
+
     const token = process.env['GITHUB_TOKEN']
     const repo_path = process.env['GITHUB_REPOSITORY']
     const workspace = process.env['GITHUB_WORKSPACE']
@@ -78,8 +78,7 @@ export async function getIDToken(
     core.debug(`owner is ${owner}`)
     core.debug(`repo is ${repo}`)
     core.debug(`branch is ${branch}`)
-    
-    
+
     const httpclient: HttpClient = createHttpClient()
     core.debug(`Httpclient created ${httpclient} `) // debug is only output if you set the secret `ACTIONS_RUNNER_DEBUG` to true
 
@@ -91,12 +90,16 @@ export async function getIDToken(
     const headers = getUploadHeaders('application/x-www-form-urlencoded')
     core.debug(`header is ${headers}`)
 
-    const response = await httpclient.post(url_token_endpoint, parameters, headers)
+    const response = await httpclient.post(
+      url_token_endpoint,
+      parameters,
+      headers
+    )
     const body: string = await response.readBody()
     const val = JSON.parse(body)
     const id_token = val['id_token']
-    
-    return id_token 
+
+    return id_token
   } catch (error) {
     core.setFailed(error.message)
     return error.message
