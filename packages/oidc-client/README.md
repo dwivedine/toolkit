@@ -1,14 +1,14 @@
-@actions/oidc-client
+<h2>@actions/oidc-client</h2>
 
-Usage
+<h3>Usage</h3>
 
 You can use this package to interact with the github oidc provider.
 
-Get the ID token
+<h3>Get the ID token</h3>
 
 Method Name: getIDToken
 
-Inputs
+<h3>Inputs</h3>
 
 Client id
 The client id registered with oidc provider
@@ -20,9 +20,11 @@ Required
 These inputs are temporary. They will be modified once the complete package is available.
 
 
-Example:
+<h3>Example:</h3>
 
+```
 const id = require('@actions/oidc-client')
+
 
 async function getID(){
    const id_token = await id.getIDToken('client-id', 'client-secret')
@@ -32,4 +34,4 @@ async function getID(){
 }
 
 getID()
-
+```
