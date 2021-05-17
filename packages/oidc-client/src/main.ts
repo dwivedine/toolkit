@@ -3,7 +3,6 @@ import {HttpClient} from '@actions/http-client'
 import {BearerCredentialHandler} from '@actions/http-client/auth'
 import {IHeaders} from '@actions/http-client/interfaces'
 
-
 export async function getTokenEndPoint(): Promise<string> {
   const httpclient: HttpClient = createHttpClient()
   if (httpclient == undefined) {
@@ -36,7 +35,6 @@ function createHttpClient(): HttpClient {
   return new HttpClient('actions/oidc-client', [bearerCredentialHandler])
 }
 
-
 function getUploadHeaders(): IHeaders {
   const requestOptions: IHeaders = {}
   requestOptions['Accept'] = `application/json`
@@ -47,11 +45,9 @@ function getUploadHeaders(): IHeaders {
 
 export async function getIDToken(
   clientid: string,
-  clientsecret: string,
-  url: string
+  clientsecret: string
 ): Promise<string> {
   try {
-
     const url_token_endpoint: string = await getTokenEndPoint()
 
     if (url_token_endpoint == undefined) {
