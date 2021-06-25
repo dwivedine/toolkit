@@ -23,6 +23,7 @@ These inputs are temporary. They will be modified once the complete package is a
 <h3>Example:</h3>
 
 ```
+const core = require('@actions/core');
 const id = require('@actions/oidc-client')
 
 
